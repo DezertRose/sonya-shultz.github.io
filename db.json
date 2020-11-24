@@ -1,0 +1,39 @@
+{"products": [{
+    "id":0,
+    "url": "pizza_mozzarella",
+    "productName": "Шото з чимось",
+    "productComponents": "сложна думать коли думаєш! ауф ",
+    "price": 155.05,
+    "images": ["/img/HitPr1.jpg", "/img/HitPr1.jpg"],
+    "conectedProductIds": [1],
+    "categoryId": 1,
+    "productDesk":"SOME INFO about product! Deskription",
+    "isHit": true },
+    {"id":1,
+    "url": "pizza_mozzarella",
+    "productName": "НУ от так вот",
+    "productComponents": "ЦЕ ВСЕ ТЕСТИ! не бийте сильно ",
+    "price": 165.95,
+    "images": ["/img/HitPr1.jpg", "/img/HitPr1.jpg"],
+    "conectedProductIds": [0,1],
+    "categoryId": 0,
+    "productDesk":"SOME INFO about product! Deskription",
+    "isHit": true }],
+"Action":[{
+    "id": "0",
+    "name":"First act",
+    "actionTime":"2020-03-10",
+    "about":"Some info about this action... enjoy",
+    "image":"https://www.inboundnow.com/wp-content/uploads/2013/11/call-to-action.jpg"
+}],
+"category":[{
+    "id":0,
+    "name":"SOTO"
+},{
+    "id":1,
+    "name":"Різна всячина2"
+},{
+    "id":2,
+    "name":"Різна всячина3"
+}]
+}
