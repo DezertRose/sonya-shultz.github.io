@@ -44,7 +44,10 @@ class screanRender{
                 break;
             }
             case '#basketPage':{ basketFull(this.container, this.db, order);refreshCounter();break;}
-            case '#createOrder':{ orderFull(this.container); refreshCounter(); break;}
+            case '#createOrder':{ if ((JSON.parse(localStr.getItem("orders"))).length>0)
+                    {orderFull(this.container); refreshCounter();console.log(localStr.orders)}
+                else {window.location.hash = ''}
+                break;}
             default: {window.location.hash = '';indexFull(this.container, this.db);break;}
         }
     }
@@ -130,13 +133,21 @@ function validation(textArea){
     return isValid;
 }
 
-function pushOrder() {
+async function pushOrder() {
     let textArea=document.getElementsByClassName("functionInput");
     let isValid=validation(textArea);
+        let baner=document.getElementById("resultBaner");
     if (isValid){
         let oneOrder=new Order(textArea, order)
-        postOrder(oneOrder)
+        let yourOrder = await postOrder(oneOrder)
+        console.log(yourOrder)
+        baner.innerHTML="Order #"+yourOrder.id;
     }
+    else{baner.innerHTML="Помилка замовлення"}
+    baner.style.display='block'
+    baner.style.top='calc(50vh - 10vmin + '+ window.scrollY +'px)'
+    window.requestAnimationFrame(banerstep);
+    setTimeout(function del3(){ baner.style.display='none'; baner.innerHTML="Додано"}, 1000);
 }
 
 window.onmouseover = function (event) {
@@ -174,7 +185,7 @@ function addToOrder(target){
             if (target.parentElement.childNodes[1].className=='counterOrdered')
                 target.parentElement.childNodes[1].innerHTML=order[i+1];
             localStr.setItem("orders", JSON.stringify( order));
-            baner.style.display='block' //body.scrollTop
+            baner.style.display='block' 
             baner.style.top='calc(50vh - 10vmin + '+ window.scrollY +'px)'
             window.requestAnimationFrame(banerstep);
             setTimeout(function del2(){baner.style.display='none'}, 1000);

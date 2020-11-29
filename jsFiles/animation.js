@@ -177,7 +177,22 @@ function moveImg(parent) {
             window.requestAnimationFrame(sliderDown);
         }
     }
+    repaintDot(parent);
     window.requestAnimationFrame(sliderUp);
+}
+
+function repaintDot(parent) {
+    let dots=document.getElementsByClassName('number');
+    if(dots.length<1){return;}
+    let number = parent.scrollLeft/parent.offsetWidth;
+    if(number>0){
+        dots[number-1].style.backgroundColor="#72bf9e"
+        dots[number].style.backgroundColor="#e29467"
+    }
+    if(number==0){
+        dots[dots.length-1].style.backgroundColor="#72bf9e"
+        dots[0].style.backgroundColor="#e29467"
+    }
 }
 
 function orderFull(container){

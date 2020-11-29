@@ -30,6 +30,7 @@ hyml, body{
     position: absolute;
     width: 40vmin;
     height:20vmin;
+    max-height: max-content;
     top: calc(50vh - 10vmin);
     left: calc(50vw - 20vmin);
     border-radius: 1vmin;
@@ -599,4 +600,42 @@ footer{
 }
 .PutOrder:hover{
     background-color:  #e294679f;
+}
+/*ДЛЯ ТЕЛЕФОНІВ*/
+@media  (max-width: 559px){
+    .recomendHit{
+        grid-template-columns: 1fr;
+    }
+    .oneProduct{
+        background-color: #dee3e9;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        border-radius: 0.5vmin;
+        min-height: 11vmax;
+    }
+    .oneProduct > img{
+        height: 55vw;
+        min-height: 11vmax;
+    }
+    .order, .unorder{
+        top: calc(100% - 4vmax);
+        left: 20px;
+        font-size: 2.7vmax;
+    }
+    .action{
+        font-size: 4vmin;
+    }
+    .productList{
+        grid-template-columns: 1fr;
+    }
+    .unorder{
+        top: calc(100% - 10vmax);
+    }
+    .priceAll, #priceAll{
+        font-size: 3vmax;
+    }
+    .shopBasket{
+        min-width: max-content;
+    }
 }
