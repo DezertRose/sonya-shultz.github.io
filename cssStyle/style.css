@@ -224,15 +224,16 @@ dee3e9 - сірий білий
     height: 50vmin;
     background-color: #081e2400;
     position: relative;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4,101%);
     z-index: 10;
+    overflow: hidden;
 }
 .oneAction{
     flex:1;
     width: 64vmin;
     height:  50vmin;
-    margin: 0 calc(50% - 32vmin) ;
+    /* margin: 0 calc(50% - 32vmin) ; */
     text-align: center;
     background-color: #081e2400;
     display: inline-block;
@@ -240,9 +241,10 @@ dee3e9 - сірий білий
     z-index: 11;
 }
 .actImg{
-    height:  48vmin;
-    width: 64vmin;
+    height: 48vmin;
+    width: 100vw;
     margin: 1vmin 0 1vmin 0;
+    object-fit: scale-down;
     border-radius: 0.5vmin;
     z-index: 12;
 }
@@ -606,6 +608,7 @@ footer{
         position: relative;
         border-radius: 0.5vmin;
         min-height: 11vmax;
+        max-width: 100%;
     }
     .oneProduct > img{
         height: 55vw;

@@ -142,7 +142,9 @@ async function pushOrder() {
         let yourOrder = await postOrder(oneOrder)
         console.log(yourOrder)
         baner.innerHTML="Order #"+yourOrder.id;
-        localStr.clear();
+        localStr.setItem("orders",  JSON.stringify([]))
+        order=[];
+        refreshCounter();
     }
     else{baner.innerHTML="Помилка замовлення"}
     baner.style.display='block'

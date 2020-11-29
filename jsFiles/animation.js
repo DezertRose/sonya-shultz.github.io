@@ -154,25 +154,27 @@ function moveImg(parent) {
     let startScroll=parent.scrollLeft;
     let infinitystart=null;
     let infinityend=null;
+    let firstmove=true;
     function sliderUp(currentTime) {
         if (!infinitystart) infinitystart = currentTime;
         let process=currentTime-infinitystart;
         let tmpscroll=parent.scrollLeft;
         if(process>1000){process=1000}
         parent.scrollLeft=startScroll+parent.offsetWidth*(process/1000);
-        if(parent.scrollLeft==tmpscroll && parent.scrollLeft!=0) 
+        if(parent.scrollLeft==tmpscroll && !firstmove) 
         {
             window.requestAnimationFrame(sliderDown);
         }
         else if (process < 1000) {
+            firstmove=false;
             window.requestAnimationFrame(sliderUp);
         }
     }
     function sliderDown(currentTime) {
         if (!infinityend) infinityend = currentTime;
-        let process=currentTime-infinitystart;
+        let process=currentTime-infinityend;
         if(process>1000){process=1000}
-        parent.scrollLeft=startScroll-parent.offsetWidth*(process/1000);
+        parent.scrollLeft=startScroll*(1-process/1000);
         if (process < 1000) {
             window.requestAnimationFrame(sliderDown);
         }
@@ -184,12 +186,12 @@ function moveImg(parent) {
 function repaintDot(parent) {
     let dots=document.getElementsByClassName('number');
     if(dots.length<1){return;}
-    let number = parent.scrollLeft/parent.offsetWidth;
-    if(number>0){
-        dots[number-1].style.backgroundColor="#72bf9e"
-        dots[number].style.backgroundColor="#e29467"
+    let number =Math.round( parent.scrollLeft/parent.offsetWidth);
+    if(number<dots.length-1){
+        dots[number].style.backgroundColor="#72bf9e"
+        dots[number+1].style.backgroundColor="#e29467"
     }
-    if(number==0){
+    if(number==dots.length-1){
         dots[dots.length-1].style.backgroundColor="#72bf9e"
         dots[0].style.backgroundColor="#e29467"
     }
