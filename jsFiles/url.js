@@ -45,7 +45,7 @@ class screanRender{
             }
             case '#basketPage':{ basketFull(this.container, this.db, order);refreshCounter();break;}
             case '#createOrder':{ if ((JSON.parse(localStr.getItem("orders"))).length>0)
-                    {orderFull(this.container); refreshCounter();console.log(localStr.orders)}
+                    {orderFull(this.container); refreshCounter();}
                 else {window.location.hash = ''}
                 break;}
             default: {window.location.hash = '';indexFull(this.container, this.db);break;}
@@ -103,8 +103,8 @@ function isDate (str){
     if(arr.length<3){return false;}
     try{
         date = new Date (arr[2]+'-'+arr[1]+'-'+arr[0])
-        if (date=='Invalide Date') {throw 'date error'}
-        if(date.getTime()<Date.now()){return false;}
+        if (date=='Invalid Date') {throw 'НЕ ТА ДАТА';}
+        if(date.getTime()<Date.now()){throw 'НЕ ТА ДАТА';}
         return true;
     }
     catch(err){return false;}
