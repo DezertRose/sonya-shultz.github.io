@@ -427,19 +427,11 @@ footer{
     float: left;
     width: 33vmax;
     height: 33vmax;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     overflow: hidden;
     box-shadow: 4px 4px 10px 1px #081e24;
     background-color: #72bf9e;
-}
-.productImgHelp{
-    height: 1vmax;
-    width: 1px;
-    background-color: #00000000;
-    border:none;
-    outline: none;
-    padding:0;
 }
 .aboutProduct{
     background-color: #1b6e68;
@@ -450,7 +442,6 @@ footer{
     box-shadow: inset 0px 4px 10px 1px #081e24;
 }
 .productImg{
-    flex: 1;
     display: inline-block;
     margin: 0;
     width: 33vmax;
