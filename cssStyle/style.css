@@ -326,6 +326,7 @@ dee3e9 - сірий білий
 .oneProduct > div {
     display: inline;
     padding: 1vh;
+    max-width: 35%;
     flex:1;
     background-color: #dee3e900;
 }
@@ -377,13 +378,20 @@ dee3e9 - сірий білий
 }
 /* Футер і його наповнення */
 footer{
-    display: none;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 20%;
+    height: max-content;
     background-color: #081e24;
     padding: 10px;
     color: #72bf9e;
     font-family: 'Comfortaa', cursive;
+}
+.textfoot{
+    flex:1;
+    display: inline;
+    height: 100%;
+    line-height: 5vmin;
 }
 
 /*Для каталогу всіх товарів*/

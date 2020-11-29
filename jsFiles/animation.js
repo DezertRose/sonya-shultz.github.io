@@ -101,7 +101,7 @@ function oneProductFull(container, db, hashId){
     let aboutProduct = incertElement('div', 'aboutProduct', container);
     let allProdImg = incertElement('div', 'allProdImg', aboutProduct);
     for (let i=0;i<db.products[hashId].images.length; i++){
-        incertImg('img', 'productImg', db.products[hashId].images[i],allProdImg);
+        incertImg('img', 'productImg', db.products[hashId].images[i],allProdImg).id=db.products[hashId].id;
     }
     //incertElementDetails('input', 'productImgHelp', 'textarea', allProdImg)
     incertElement('p', 'oneProductName', aboutProduct).innerHTML=db.products[hashId].productName;
@@ -188,11 +188,13 @@ function repaintDot(parent) {
     if(dots.length<1){return;}
     let number =Math.round( parent.scrollLeft/parent.offsetWidth);
     if(number<dots.length-1){
-        dots[number].style.backgroundColor="#72bf9e"
+        for(let q=0; q<dots.length;q++)
+        dots[q].style.backgroundColor="#72bf9e"
         dots[number+1].style.backgroundColor="#e29467"
     }
     if(number==dots.length-1){
-        dots[dots.length-1].style.backgroundColor="#72bf9e"
+        for(let q=0; q<dots.length;q++)
+        dots[q].style.backgroundColor="#72bf9e"
         dots[0].style.backgroundColor="#e29467"
     }
 }

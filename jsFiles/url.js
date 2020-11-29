@@ -13,7 +13,7 @@ let orderCase=['+38 0** *** ** **','','Українською мовою','Ки�
 onReady(function() {
     document.getElementById('loading').style.display='none'
     document.getElementsByClassName('container')[0].style.display='block' 
-    document.getElementsByClassName('footer')[0].style.display='block' 
+    document.getElementsByClassName('footer')[0].style.display='flex' 
 });
 class screanRender{
     constructor(container, db, siteUrl){
